@@ -1373,17 +1373,18 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_LocalRotation: {x: -0, y: 0.7174158, z: -0, w: 0.6966453}
-  m_LocalPosition: {x: -7.611664, y: 9.998169, z: -53.67006}
+  m_LocalRotation: {x: -0, y: 0.009455462, z: -0, w: 0.9999553}
+  m_LocalPosition: {x: 5.302582, y: 0, z: -3.8635101}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469942}
   - {fileID: 495908}
   - {fileID: 448028}
   - {fileID: 4384581816370590}
+  - {fileID: 4713975581552832}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 91.68301, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1.0840001, z: 0}
 --- !u!4 &409212
 Transform:
   m_ObjectHideFlags: 1
@@ -2718,6 +2719,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1868136573031144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4713975581552832}
+  m_Layer: 9
+  m_Name: Projectile Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4384581816370590
 Transform:
   m_ObjectHideFlags: 1
@@ -2730,6 +2746,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 408730}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4713975581552832
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868136573031144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.763, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 408730}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114804723581032426
 MonoBehaviour:
@@ -2755,7 +2784,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
-  attackRadius: 4
+  chaseRadius: 6
+  attackRadius: 8
+  damagePerShot: 9
+  secondsBetweenShots: 0.5
+  projectileToUse: {fileID: 1566832286346188, guid: 4094495088e266e40a6770c89c81806a,
+    type: 2}
+  projectileSocket: {fileID: 1868136573031144}
+  aimOffset: {x: 0, y: 1, z: 0}
 --- !u!114 &114973473918550284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2778,11 +2814,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_AngularSpeed: 50
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
