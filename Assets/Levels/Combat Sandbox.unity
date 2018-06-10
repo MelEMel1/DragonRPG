@@ -1522,10 +1522,6 @@ Prefab:
       propertyPath: m_Name
       value: Thug (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4696952347481094, guid: 6a0aa912e65671f4dacc5fe54bc7d267, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -79.425
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a0aa912e65671f4dacc5fe54bc7d267, type: 2}
   m_IsPrefabParent: 0

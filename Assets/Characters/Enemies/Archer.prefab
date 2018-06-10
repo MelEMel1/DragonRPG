@@ -2591,8 +2591,8 @@ MonoBehaviour:
   maxHealthPoints: 100
   chaseRadius: 6
   attackRadius: 4
-  damagePerShot: 9
-  secondsBetweenShots: 0.5
+  damagePerShot: 50
+  secondsBetweenShots: 1.5
   projectileToUse: {fileID: 1566832286346188, guid: e85b0dac340248644b32c22e1332f974,
     type: 2}
   projectileSocket: {fileID: 1985317543506848}

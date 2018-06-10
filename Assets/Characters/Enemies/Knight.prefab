@@ -2601,11 +2601,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac46da830b7bf0443b928b3e59950ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100
+  maxHealthPoints: 800
   chaseRadius: 6
   attackRadius: 4
-  damagePerShot: 9
-  secondsBetweenShots: 0.5
+  damagePerShot: 100
+  secondsBetweenShots: 2
   projectileToUse: {fileID: 1566832286346188, guid: e85b0dac340248644b32c22e1332f974,
     type: 2}
   projectileSocket: {fileID: 1825719108247216}
