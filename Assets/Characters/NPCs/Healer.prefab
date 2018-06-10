@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
-  chaseRadius: 12
+  chaseRadius: 15
   attackRadius: 12
   damagePerShot: -150
   secondsBetweenShots: 5
@@ -2818,7 +2818,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 50
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 2.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

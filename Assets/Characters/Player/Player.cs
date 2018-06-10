@@ -15,13 +15,7 @@ public class Player : MonoBehaviour, IDamageable {
     CameraRaycaster cameraRaycaster;
     float lastHitTime = 0f;
 
-	public float healthAsPercentage
-    {
-        get
-        {
-            return currentHealthPoints/ maxHealthPoints;
-        }
-    }
+    public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; }}
 
     void Start()
     {
@@ -32,12 +26,12 @@ public class Player : MonoBehaviour, IDamageable {
 
     void OnMouseClick(RaycastHit raycastHit, int layerHit)
     {
-        if(layerHit == enemyLayer)
+        if (layerHit == enemyLayer)
         {
             var enemy = raycastHit.collider.gameObject;
-
+             
             // Check enemy is in range
-            if((enemy.transform.position - transform.position).magnitude > maxAttackRange)
+            if ((enemy.transform.position - transform.position).magnitude > maxAttackRange)
             {
                 return;
             }
@@ -45,7 +39,8 @@ public class Player : MonoBehaviour, IDamageable {
             currentTarget = enemy;
 
             var enemyComponent = enemy.GetComponent<Enemy>();
-            if(Time.time - lastHitTime > minTimeBetweenHits){
+            if (Time.time - lastHitTime > minTimeBetweenHits)
+            {
                 enemyComponent.TakeDamage(damagePerHit);
                 lastHitTime = Time.time;
             }

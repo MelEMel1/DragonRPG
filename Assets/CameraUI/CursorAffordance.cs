@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CameraRaycaster))]
-public class CursorAffordance : MonoBehaviour { 
+public class CursorAffordance : MonoBehaviour {
 
     [SerializeField] Texture2D walkCursor = null;
     [SerializeField] Texture2D unknownCursor = null;
     [SerializeField] Texture2D targetCursor = null;
     [SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
 
+    // TODO solve fight between serialize and const
     [SerializeField] const int walkableLayerNumber = 8;
     [SerializeField] const int enemyLayerNumber = 9;
 
@@ -17,24 +18,22 @@ public class CursorAffordance : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		cameraRaycaster = GetComponent<CameraRaycaster>();
+        cameraRaycaster = GetComponent<CameraRaycaster>();
         cameraRaycaster.notifyLayerChangeObservers += OnLayerChanged; // registering
 	}
-	
-	// Update is called once per frame
-	void OnLayerChanged(int newLayer) { 
-        switch (newLayer) 
+
+    void OnLayerChanged(int newLayer) {
+        switch (newLayer)
         {
             case walkableLayerNumber:
-            Cursor.SetCursor(walkCursor, cursorHotspot, CursorMode.Auto);
+                Cursor.SetCursor(walkCursor, cursorHotspot, CursorMode.Auto);
                 break;
             case enemyLayerNumber:
-            Cursor.SetCursor(targetCursor, cursorHotspot, CursorMode.Auto);
+                Cursor.SetCursor(targetCursor, cursorHotspot, CursorMode.Auto);
                 break;
             default:
-            Cursor.SetCursor(unknownCursor, cursorHotspot, CursorMode.Auto);
+                Cursor.SetCursor(unknownCursor, cursorHotspot, CursorMode.Auto);
                 return;
         }
-        
-	}
+    }
 }

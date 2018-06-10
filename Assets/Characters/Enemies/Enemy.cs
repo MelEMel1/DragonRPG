@@ -11,66 +11,59 @@ public class Enemy : MonoBehaviour, IDamageable {
     [SerializeField] float attackRadius = 4f;
     [SerializeField] float damagePerShot = 9f;
     [SerializeField] float secondsBetweenShots = 0.5f;
-
     [SerializeField] GameObject projectileToUse;
     [SerializeField] GameObject projectileSocket;
     [SerializeField] Vector3 aimOffset = new Vector3(0, 1f, 0);
 
     bool isAttacking = false;
     float currentHealthPoints;
-    AICharacterControl aICharacterControl = null;
+    AICharacterControl aiCharacterControl = null;
     GameObject player = null;
 
-	public float healthAsPercentage
+    public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; }}
+
+    public void TakeDamage(float damage)
     {
-        get
-        {
-            return currentHealthPoints/ maxHealthPoints;
-        }
+        currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+        if (currentHealthPoints <= 0) { Destroy(gameObject); }
     }
 
-        public void TakeDamage(float damage)
-    {
-        currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints); 
-        if(currentHealthPoints <= 0){Destroy(gameObject);}
-    }
-
-    private void Start()
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        aICharacterControl = GetComponent<AICharacterControl>();
+        aiCharacterControl = GetComponent<AICharacterControl>();
         currentHealthPoints = maxHealthPoints;
     }
 
-    private void Update()
+    void Update()
     {
         float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-        if(distanceToPlayer <= attackRadius && !isAttacking)
+        if (distanceToPlayer <= attackRadius && !isAttacking)
         {
             isAttacking = true;
             InvokeRepeating("SpawnProjectile", 0f, secondsBetweenShots); // TODO switch to coroutines
         }
-
-        if(distanceToPlayer > attackRadius)
+        
+        if (distanceToPlayer > attackRadius)
         {
             isAttacking = false;
             CancelInvoke();
         }
-    
+
         if (distanceToPlayer <= chaseRadius)
         {
-            aICharacterControl.SetTarget(player.transform);
+            aiCharacterControl.SetTarget(player.transform);
         }
         else
         {
-            aICharacterControl.SetTarget(transform);
+            aiCharacterControl.SetTarget(transform);
         }
     }
 
     void SpawnProjectile()
     {
         GameObject newProjectile = Instantiate(projectileToUse, projectileSocket.transform.position, Quaternion.identity);
-        Projectile projectileComponent =newProjectile.GetComponent<Projectile>();
+        Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         projectileComponent.SetDamage(damagePerShot);
 
         Vector3 unitVectorToPlayer = (player.transform.position + aimOffset - projectileSocket.transform.position).normalized;
@@ -80,10 +73,12 @@ public class Enemy : MonoBehaviour, IDamageable {
 
     void OnDrawGizmos()
     {
-        Gizmos.color = new Color(255f, 0f, 0, .5f);
+        // Draw attack sphere 
+        Gizmos.color = new Color(255f, 0, 0, .5f);
         Gizmos.DrawWireSphere(transform.position, attackRadius);
 
-        Gizmos.color = new Color(0f, 0f, 255, .5f);
+        // Draw chase sphere 
+        Gizmos.color = new Color(0, 0, 255, .5f);
         Gizmos.DrawWireSphere(transform.position, chaseRadius);
     }
 }
