@@ -29,15 +29,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_LocalRotation: {x: -0, y: -0.7703618, z: -0, w: 0.63760704}
-  m_LocalPosition: {x: 21.49, y: 0, z: -5.65}
+  m_LocalRotation: {x: -0, y: 0.27471432, z: -0, w: 0.9615259}
+  m_LocalPosition: {x: 4.869194, y: 9.998169, z: -82.87311}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4966561484104108}
   - {fileID: 4191541473023486}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -100.773, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 31.890001, z: 0}
 --- !u!54 &5426510
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -893,13 +893,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 149790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b705227d3717644a834d9105f94a86, type: 3}
+  m_Script: {fileID: 11500000, guid: a9268856d129aa64a8ab4590ce181c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLayer: 9
   maxHealthPoints: 1000
   damagePerHit: 50
-  minTimeBetweenHits: 1
+  minTimeBetweenHits: 0.5
   maxAttackRange: 2
 --- !u!114 &114894259877796620
 MonoBehaviour:
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 149790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074066ec8b3421e4599299739ae0cf75, type: 3}
+  m_Script: {fileID: 11500000, guid: beb75cb33cc6f884db40fe6cec105d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!137 &137204721351103400
