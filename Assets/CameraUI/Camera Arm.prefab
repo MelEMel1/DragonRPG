@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 124169898235185854}
   - component: {fileID: 81852088663888658}
   - component: {fileID: 114406461940121352}
-  - component: {fileID: 114482988359748470}
+  - component: {fileID: 114024337508807644}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -117,6 +117,21 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1288248556650402}
   m_Enabled: 1
+--- !u!114 &114024337508807644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288248556650402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f83d710eebbbca438a7ce04015996df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkCursor: {fileID: 2800000, guid: 7b0d6dd0ff8501c4995997eb18c92c6b, type: 3}
+  unknownCursor: {fileID: 2800000, guid: 358205cd301a3554f9e21273454e321a, type: 3}
+  targetCursor: {fileID: 2800000, guid: 26dcbd5923dd89a4c8c27e931f14ee6c, type: 3}
+  cursorHotspot: {x: 0, y: 0}
 --- !u!114 &114121365064891588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1935672118702774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d338dee86bb249d40ba330e233c1f2d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f38397a5b56d9b44b4c13df92053e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114406461940121352
@@ -139,22 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02853f5d34bd8f429969ac34c466d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerPriorities: 090000000a00000008000000
---- !u!114 &114482988359748470
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1288248556650402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e09b2e28f1941d4fb61cd70a94d99aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkCursor: {fileID: 2800000, guid: 7b0d6dd0ff8501c4995997eb18c92c6b, type: 3}
-  unknownCursor: {fileID: 2800000, guid: 358205cd301a3554f9e21273454e321a, type: 3}
-  targetCursor: {fileID: 2800000, guid: 26dcbd5923dd89a4c8c27e931f14ee6c, type: 3}
-  cursorHotspot: {x: 0, y: 0}
+  layerPriorities: 0900000008000000
 --- !u!124 &124169898235185854
 Behaviour:
   m_ObjectHideFlags: 1
