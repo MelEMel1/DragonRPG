@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace RPG.Weapons{
 public class Projectile : MonoBehaviour {
 
     [SerializeField] float projectileSpeed;
@@ -44,4 +45,5 @@ public class Projectile : MonoBehaviour {
         }
         Destroy(gameObject, DESTROY_DELAY);
     }
+}
 }

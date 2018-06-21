@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
+namespace RPG.Characters{
 public class Enemy : MonoBehaviour, IDamageable {
 
     [SerializeField] float maxHealthPoints = 100f;
@@ -82,5 +83,6 @@ public class Enemy : MonoBehaviour, IDamageable {
         // Draw chase sphere 
         Gizmos.color = new Color(0, 0, 255, .5f);
         Gizmos.DrawWireSphere(transform.position, chaseRadius);
+    }
     }
 }

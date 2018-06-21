@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace RPG.Core{
 public class SpinMe : MonoBehaviour {
 
 	[SerializeField] float xRotationsPerMinute = 1f;
@@ -23,4 +24,5 @@ public class SpinMe : MonoBehaviour {
         float zDegreesPerFrame = Time.deltaTime / 60 * 360 * zRotationsPerMinute;
         transform.RotateAround (transform.position, transform.forward, zDegreesPerFrame);
 	}
+}
 }

@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using RPG.CameraUI; // TODO consider re-wiring
 
+namespace RPG.Characters{
 public class Player : MonoBehaviour, IDamageable {
 
     [SerializeField] int enemyLayer = 9;
@@ -75,5 +77,6 @@ public class Player : MonoBehaviour, IDamageable {
     public void TakeDamage(float damage)
     {
         currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+    } 
     }
 }

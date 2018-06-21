@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Linq;
 using System.Collections.Generic;
 
+namespace RPG.CameraUI{
 public class CameraRaycaster : MonoBehaviour
 {
 	// INSPECTOR PROPERTIES RENDERED BY CUSTOM EDITOR SCRIPT
@@ -80,5 +81,6 @@ public class CameraRaycaster : MonoBehaviour
 			}
 		}
 		return null; // because cannot use GameObject? nullable
-	}
+	    }
+    }
 }
