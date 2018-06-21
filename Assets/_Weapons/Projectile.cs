@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Core; // TODO consider re-wire
 
 namespace RPG.Weapons{
 public class Projectile : MonoBehaviour {
@@ -29,7 +30,7 @@ public class Projectile : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         var layerCollidedWith = collision.gameObject.layer;
-        if (layerCollidedWith != shooter.layer)
+        if (shooter && layerCollidedWith != shooter.layer)
         {
             DamageIfDamageable(collision);
         }

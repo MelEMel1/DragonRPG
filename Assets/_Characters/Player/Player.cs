@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
-using RPG.CameraUI; // TODO consider re-wiring
+
+// TODO consider re-wire
+using RPG.CameraUI; 
+using RPG.Core; 
+using RPG.Weapons;
 
 namespace RPG.Characters{
 public class Player : MonoBehaviour, IDamageable {
@@ -14,6 +18,7 @@ public class Player : MonoBehaviour, IDamageable {
     [SerializeField] float minTimeBetweenHits = .5f;
     [SerializeField] float maxAttackRange = 2f;
     [SerializeField] Weapon weaponInUse;
+    [SerializeField] AnimatorOverrideController animatorOverrideController;
 
     float currentHealthPoints;
     CameraRaycaster cameraRaycaster;
@@ -22,13 +27,26 @@ public class Player : MonoBehaviour, IDamageable {
     public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; }}
 
     void Start()
-    {
-        RegisterForMouseClick();
-        currentHealthPoints = maxHealthPoints;
-        PutWeaponInHand();
-    }
+        {
+            RegisterForMouseClick();
+            SetCurrentMaxHealth();
+            PutWeaponInHand();
+            OverriderAnimatorController();
+        }
 
-    private void PutWeaponInHand()
+        private void SetCurrentMaxHealth()
+        {
+            currentHealthPoints = maxHealthPoints;
+        }
+
+        private void OverriderAnimatorController()
+        {
+            var animator = GetComponent<Animator>();
+            animator.runtimeAnimatorController = animatorOverrideController;
+            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAttackAnimClip(); // remove parameter
+        }
+
+        private void PutWeaponInHand()
     {
         var weaponPrefab = weaponInUse.GetWeaponPrefab();
         GameObject dominantHand = RequestDominantHand();
