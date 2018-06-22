@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// TODO change to RPS.Characters namespaces
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
