@@ -4242,6 +4242,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114406461940121352, guid: 8d48c80db2d267445a221d1cbc328436,
+        type: 2}
+      propertyPath: walkCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: 7b0d6dd0ff8501c4995997eb18c92c6b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d48c80db2d267445a221d1cbc328436, type: 2}
   m_IsPrefabParent: 0

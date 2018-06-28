@@ -28,7 +28,17 @@ public class PlayerMovement : MonoBehaviour
         walkTarget = new GameObject("walkTarget");
 
         cameraRaycaster.notifyMouseClickObservers += ProcessMouseClick;
+        cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
     }
+
+    void OnMouseOverPotentiallyWalkable(Vector3 destination)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                walkTarget.transform.position = destination;
+                aiCharacterControl.SetTarget(walkTarget.transform);
+            }
+        }
 
 
     void ProcessMouseClick(RaycastHit raycastHit, int layerHit)
@@ -39,11 +49,6 @@ public class PlayerMovement : MonoBehaviour
                 // navigate to the enemy
                 GameObject enemy = raycastHit.collider.gameObject;
                 aiCharacterControl.SetTarget(enemy.transform);
-                break;
-            case walkableLayerNumber:
-                // navigate to point on the ground
-                walkTarget.transform.position = raycastHit.point;
-                aiCharacterControl.SetTarget(walkTarget.transform);
                 break;
             default:
                 Debug.LogWarning("Don't know how to handle mouse click for player movement");
