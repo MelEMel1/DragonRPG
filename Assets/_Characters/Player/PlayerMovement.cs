@@ -15,10 +15,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 clickPoint;
     AICharacterControl aiCharacterControl = null;
     GameObject walkTarget = null;
-
-    // TODO solve fight between serialize and const
-    [SerializeField] const int walkableLayerNumber = 8;
-    [SerializeField] const int enemyLayerNumber = 9;
         
     void Start()
     {
@@ -26,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
         thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
         aiCharacterControl = GetComponent<AICharacterControl>();
         walkTarget = new GameObject("walkTarget");
-
-        cameraRaycaster.notifyMouseClickObservers += ProcessMouseClick;
+            
         cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
+        cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
     }
 
     void OnMouseOverPotentiallyWalkable(Vector3 destination)
@@ -40,21 +36,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
-    void ProcessMouseClick(RaycastHit raycastHit, int layerHit)
-    {
-        switch (layerHit)
+    void OnMouseOverEnemy(Enemy enemy)
         {
-            case enemyLayerNumber:
-                // navigate to the enemy
-                GameObject enemy = raycastHit.collider.gameObject;
+            if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(1)) 
+            {
                 aiCharacterControl.SetTarget(enemy.transform);
-                break;
-            default:
-                Debug.LogWarning("Don't know how to handle mouse click for player movement");
-                return;
+            }
         }
-    }
 
     // TODO make this get called again
     void ProcessDirectMovement()
