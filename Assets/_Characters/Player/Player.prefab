@@ -735,12 +735,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9268856d129aa64a8ab4590ce181c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayer: 9
   maxHealthPoints: 1000
   damagePerHit: 50
   weaponInUse: {fileID: 11400000, guid: d9c6057e168fd1b4f901b8616b15d7cf, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: 2a206a6091c115043a9fa39002dae1a4,
     type: 2}
+  ability1: {fileID: 11400000, guid: f0c1d1ac5f01b4b46b55609275ae3931, type: 2}
 --- !u!114 &114894259877796620
 MonoBehaviour:
   m_ObjectHideFlags: 1
