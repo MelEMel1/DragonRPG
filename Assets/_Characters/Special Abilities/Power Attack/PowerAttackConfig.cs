@@ -16,5 +16,10 @@ namespace RPG.Characters{
             behaviourComponent.SetConfig(this);
             behaviour = behaviourComponent;
         }
+
+        public float GetExtraDamage()
+        {
+            return extraDamage;
+        }
     }
 }
