@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace RPG.Characters{
     public class Energy : MonoBehaviour {
         [SerializeField] RawImage energyBar = null;
         [SerializeField] float maxEnergyPoints = 100f;
+        [SerializeField] float regenPointsPerSecond =1f;
 
         float currentEnergyPoints;
         CameraUI.CameraRaycaster cameraRaycaster;
@@ -13,6 +15,21 @@ namespace RPG.Characters{
 	    void Start () {
 		    currentEnergyPoints = maxEnergyPoints;
 	    }
+
+        private void Update()
+        {
+            if(currentEnergyPoints < maxEnergyPoints)
+            {
+                AddEnergyPoints();
+                UpdateEnergyBar();
+            }
+        }
+
+        private void AddEnergyPoints()
+        {
+            var pointsToAdd = regenPointsPerSecond * Time.deltaTime;
+            currentEnergyPoints = Mathf.Clamp(currentEnergyPoints + pointsToAdd, 0, maxEnergyPoints);
+        }
 
         public bool IsEnergyAvailable(float amount)
         {
