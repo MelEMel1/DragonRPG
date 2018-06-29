@@ -19,7 +19,7 @@ public class Player : MonoBehaviour, IDamageable {
     [SerializeField] AnimatorOverrideController animatorOverrideController;
 
     // Temporarily serializing for dubbing
-    [SerializeField] SpecialAbilityConfig ability1;
+    [SerializeField] SpecialAbilityConfig[] abilities;
 
     Animator animator;
     float currentHealthPoints;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour, IDamageable {
             SetCurrentMaxHealth();
             PutWeaponInHand();
             SetupRuntimeAnimator();
-            ability1.AddComponent(gameObject);
+            abilities[0].AttachComponentTo(gameObject);
         }
 
         private void SetCurrentMaxHealth()
@@ -80,18 +80,18 @@ public class Player : MonoBehaviour, IDamageable {
                 AttackTarget(enemy);
             }else if (Input.GetMouseButtonDown(1))
             {
-                AttemptSpecialAbility1(enemy);
+                AttemptSpecialAbility(0, enemy);
             }
         }
 
-        private void AttemptSpecialAbility1(Enemy enemy)
+        private void AttemptSpecialAbility(int abilityIndex, Enemy enemy)
         {
             var energyComponent = GetComponent<Energy>();
 
             if (energyComponent.IsEnergyAvailable(10f)) // TODO read from SO
             {
                 energyComponent.ConsumeEnergy(10f);
-                // TODO Use the ability
+                abilities[abilityIndex].Use();
             }
         }
 

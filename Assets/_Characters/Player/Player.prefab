@@ -740,7 +740,8 @@ MonoBehaviour:
   weaponInUse: {fileID: 11400000, guid: d9c6057e168fd1b4f901b8616b15d7cf, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: 2a206a6091c115043a9fa39002dae1a4,
     type: 2}
-  ability1: {fileID: 11400000, guid: f0c1d1ac5f01b4b46b55609275ae3931, type: 2}
+  abilities:
+  - {fileID: 11400000, guid: f0c1d1ac5f01b4b46b55609275ae3931, type: 2}
 --- !u!114 &114894259877796620
 MonoBehaviour:
   m_ObjectHideFlags: 1
